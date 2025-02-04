@@ -7,7 +7,7 @@ use Livewire\Component;
 class User extends Component
 {
     public $pilihanMenu = 'lihat';
-
+    public $semuaPengguna;
     public function pilihMenu($menu)
     {
         $this->pilihanMenu = $menu;
