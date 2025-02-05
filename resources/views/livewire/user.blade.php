@@ -41,32 +41,10 @@
                         </div>
                     </div>
                 @elseif ($pilihanMenu == 'tambah')
-                    <div class="card border-primary">
-                        <div class="card-header">
-                            Tambah Pengguna
-                        </div>
-                        <div class="card-body">
-                            test
-                        </div>
-                    </div>
+
                 @elseif ($pilihanMenu == 'edit')
-                    <div class="card border-primary">
-                        <div class="card-header">
-                            Edit Pengguna
-                        </div>
-                        <div class="card-body">
-                            test
-                        </div>
-                    </div>
+
                 @elseif ($pilihanMenu == 'hapus')
-                    <div class="card border-primary">
-                        <div class="card-header">
-                            Hapus Pengguna
-                        </div>
-                        <div class="card-body">
-                            test
-                        </div>
-                    </div>
                 @endif
             </div>
         </div>
