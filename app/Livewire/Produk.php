@@ -4,13 +4,15 @@ namespace App\Livewire;
 
 use App\Models\Produk as ModelProduk;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\Barang as importBarang;
 
 class Produk extends Component
 {
+    use WithFileUploads;
     public $pilihanMenu = 'lihat';
-    public $nama, $kode, $harga, $stok;
-    public $produkTerpilih;
-
+    public $nama, $kode, $harga, $stok, $file, $produkTerpilih;
 
     public function render()
     {
@@ -97,6 +99,13 @@ class Produk extends Component
         $simpan->save();
 
         $this->reset(['kode', 'nama', 'harga', 'stok', 'produkTerpilih']);
+        $this->pilihanMenu = 'lihat';
+    }
+
+    public function impor()
+    {
+        Excel::import(new importBarang, $this->file);
+        $this->reset();
         $this->pilihanMenu = 'lihat';
     }
 }
