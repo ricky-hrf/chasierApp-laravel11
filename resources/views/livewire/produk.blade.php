@@ -8,6 +8,9 @@
                 <button wire:click="pilihMenu('tambah')"
                     class="btn {{ $pilihanMenu == 'tambah' ? 'btn-primary' : 'btn-outline-primary' }}">Tambah
                     Barang</button>
+                <button wire:click="pilihMenu('excel')"
+                    class="btn {{ $pilihanMenu == 'excel' ? 'btn-primary' : 'btn-outline-primary' }}">Import
+                    Barang</button>
                 <button wire:loading class="btn btn-info">loading...</button>
             </div>
         </div>
@@ -133,6 +136,18 @@
                             <br>
                             <button class="btn btn-danger" wire:click="delete">Hapus</button>
                             <button class="btn btn-secondary" wire:click="cancel">Batal</button>
+                        </div>
+                    </div>
+                @elseif ($pilihanMenu == 'excel')
+                    <div class="card border-info">
+                        <div class="card-header bg-info text-white">
+                            Import Barang
+                        </div>
+                        <div class="card-body">
+                            <form action="" wire:submit="impor">
+                                <input type="file" class="form-control" wire:model="file">
+                                <button class="btn btn-info mt-2" type="submit">Kirim</button>
+                            </form>
                         </div>
                     </div>
                 @endif
