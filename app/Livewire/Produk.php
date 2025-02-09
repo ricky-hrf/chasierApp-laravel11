@@ -14,6 +14,13 @@ class Produk extends Component
     public $pilihanMenu = 'lihat';
     public $nama, $kode, $harga, $stok, $file, $produkTerpilih;
 
+    public function mount()
+    {
+        if (auth()->user()->peran != 'admin') {
+            abort(403);
+        }
+    }
+
     public function render()
     {
         return view('livewire.produk')->with(['semuaProduk' => ModelProduk::all()]);

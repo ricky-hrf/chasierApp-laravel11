@@ -11,6 +11,13 @@ class User extends Component
     public $name, $email, $password, $peran;
     public $penggunaTerpilih;
 
+    public function mount()
+    {
+        if (auth()->user()->peran != 'admin') {
+            abort(403);
+        }
+    }
+
     public function pilihMenu($menu)
     {
         $this->pilihanMenu = $menu;
